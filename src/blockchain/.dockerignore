@@ -1,0 +1,19 @@
+/node_modules
+.env
+*.log
+# json files needed now still
+
+**/.git
+**/.vscode
+
+Dockerfile
+.dockerignore
+npm-debug.log
+
+# *.json
+
+# log files
+*.log
+
+# tests
+workbench

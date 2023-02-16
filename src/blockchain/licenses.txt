@@ -1,0 +1,825 @@
+├─ @ankr.com/ankr.js@0.1.12
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Ankr-network/ankr.js
+│  ├─ publisher: Ankr
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ankr.com/ankr.js
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ankr.com/ankr.js/LICENSE
+├─ @colors/colors@1.5.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DABH/colors.js
+│  ├─ publisher: DABH
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@colors/colors
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@colors/colors/LICENSE
+├─ @cspotcode/source-map-support@0.8.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/cspotcode/node-source-map-support
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@cspotcode/source-map-support
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@cspotcode/source-map-support/LICENSE.md
+├─ @dabh/diagnostics@2.0.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/3rd-Eden/diagnostics
+│  ├─ publisher: Arnout Kazemier
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@dabh/diagnostics
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@dabh/diagnostics/LICENSE
+├─ @ethersproject/abi@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/abi
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/abi/LICENSE.md
+├─ @ethersproject/abstract-provider@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/abstract-provider
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/abstract-provider/LICENSE.md
+├─ @ethersproject/abstract-signer@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/abstract-signer
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/abstract-signer/LICENSE.md
+├─ @ethersproject/address@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/address
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/address/LICENSE.md
+├─ @ethersproject/base64@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/base64
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/base64/LICENSE.md
+├─ @ethersproject/basex@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/basex
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/basex/LICENSE.md
+├─ @ethersproject/bignumber@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/bignumber
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/bignumber/LICENSE.md
+├─ @ethersproject/bytes@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/bytes
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/bytes/LICENSE.md
+├─ @ethersproject/constants@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/constants
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/constants/LICENSE.md
+├─ @ethersproject/contracts@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/contracts
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/contracts/LICENSE.md
+├─ @ethersproject/hash@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/hash
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/hash/LICENSE.md
+├─ @ethersproject/hdnode@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/hdnode
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/hdnode/LICENSE.md
+├─ @ethersproject/json-wallets@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/json-wallets
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/json-wallets/LICENSE.md
+├─ @ethersproject/keccak256@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/keccak256
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/keccak256/LICENSE.md
+├─ @ethersproject/logger@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/logger
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/logger/README.md
+├─ @ethersproject/networks@5.7.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/networks
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/networks/LICENSE.md
+├─ @ethersproject/pbkdf2@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/pbkdf2
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/pbkdf2/LICENSE.md
+├─ @ethersproject/properties@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/properties
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/properties/LICENSE.md
+├─ @ethersproject/providers@5.7.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/providers
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/providers/LICENSE.md
+├─ @ethersproject/random@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/random
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/random/LICENSE.md
+├─ @ethersproject/rlp@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/rlp
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/rlp/LICENSE.md
+├─ @ethersproject/sha2@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/sha2
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/sha2/LICENSE.md
+├─ @ethersproject/signing-key@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/signing-key
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/signing-key/LICENSE.md
+├─ @ethersproject/solidity@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/solidity
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/solidity/LICENSE.md
+├─ @ethersproject/strings@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/strings
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/strings/LICENSE.md
+├─ @ethersproject/transactions@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/transactions
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/transactions/LICENSE.md
+├─ @ethersproject/units@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/units
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/units/LICENSE.md
+├─ @ethersproject/wallet@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/wallet
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/wallet/LICENSE.md
+├─ @ethersproject/web@5.7.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/web
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/web/LICENSE.md
+├─ @ethersproject/wordlists@5.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/wordlists
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@ethersproject/wordlists/LICENSE.md
+├─ @jridgewell/resolve-uri@3.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jridgewell/resolve-uri
+│  ├─ publisher: Justin Ridgewell
+│  ├─ email: justin@ridgewell.name
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@jridgewell/resolve-uri
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@jridgewell/resolve-uri/LICENSE
+├─ @jridgewell/sourcemap-codec@1.4.14
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jridgewell/sourcemap-codec
+│  ├─ publisher: Rich Harris
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@jridgewell/sourcemap-codec
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@jridgewell/sourcemap-codec/LICENSE
+├─ @jridgewell/trace-mapping@0.3.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jridgewell/trace-mapping
+│  ├─ publisher: Justin Ridgewell
+│  ├─ email: justin@ridgewell.name
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@jridgewell/trace-mapping
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@jridgewell/trace-mapping/LICENSE
+├─ @prisma/client@4.8.1
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/prisma/prisma
+│  ├─ publisher: Tim Suchanek
+│  ├─ email: suchanek@prisma.io
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@prisma/client
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@prisma/client/LICENSE
+├─ @prisma/engines-version@4.8.0-61.d6e67a83f971b175a593ccc12e15c4a757f93ffe
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/prisma/engines-wrapper
+│  ├─ publisher: Tim Suchanek
+│  ├─ email: suchanek@prisma.io
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@prisma/engines-version
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@prisma/engines-version/LICENSE
+├─ @prisma/engines@4.8.0
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/prisma/prisma
+│  ├─ publisher: Tim Suchanek
+│  ├─ email: suchanek@prisma.io
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@prisma/engines
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@prisma/engines/LICENSE
+├─ @tsconfig/node10@1.0.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/tsconfig/bases
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@tsconfig/node10
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@tsconfig/node10/LICENSE
+├─ @tsconfig/node12@1.0.11
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/tsconfig/bases
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@tsconfig/node12
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@tsconfig/node12/LICENSE
+├─ @tsconfig/node14@1.0.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/tsconfig/bases
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@tsconfig/node14
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@tsconfig/node14/LICENSE
+├─ @tsconfig/node16@1.0.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/tsconfig/bases
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@tsconfig/node16
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@tsconfig/node16/LICENSE
+├─ @types/node@18.11.18
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@types/node
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@types/node/LICENSE
+├─ @types/pg@8.6.6
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@types/pg
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/@types/pg/LICENSE
+├─ acorn-walk@8.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/acornjs/acorn
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/acorn-walk
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/acorn-walk/LICENSE
+├─ acorn@8.8.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/acornjs/acorn
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/acorn
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/acorn/LICENSE
+├─ aes-js@3.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ricmoo/aes-js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/aes-js
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/aes-js/LICENSE.txt
+├─ arg@4.1.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/zeit/arg
+│  ├─ publisher: Josh Junon
+│  ├─ email: junon@zeit.co
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/arg
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/arg/LICENSE.md
+├─ async@3.2.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/caolan/async
+│  ├─ publisher: Caolan McMahon
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/async
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/async/LICENSE
+├─ axios@0.26.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/axios/axios
+│  ├─ publisher: Matt Zabriskie
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/axios
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/axios/LICENSE
+├─ bech32@1.1.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/bitcoinjs/bech32
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/bech32
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/bech32/LICENSE
+├─ bn.js@4.12.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/indutny/bn.js
+│  ├─ publisher: Fedor Indutny
+│  ├─ email: fedor@indutny.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/elliptic/node_modules/bn.js
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/elliptic/node_modules/bn.js/LICENSE
+├─ bn.js@5.2.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/indutny/bn.js
+│  ├─ publisher: Fedor Indutny
+│  ├─ email: fedor@indutny.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/bn.js
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/bn.js/LICENSE
+├─ brorand@1.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/indutny/brorand
+│  ├─ publisher: Fedor Indutny
+│  ├─ email: fedor@indutny.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/brorand
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/brorand/README.md
+├─ buffer-writer@2.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/brianc/node-buffer-writer
+│  ├─ publisher: Brian M. Carlson
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/buffer-writer
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/buffer-writer/LICENSE
+├─ color-convert@1.9.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Qix-/color-convert
+│  ├─ publisher: Heather Arthur
+│  ├─ email: fayearthur@gmail.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/color-convert
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/color-convert/LICENSE
+├─ color-name@1.1.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/dfcreative/color-name
+│  ├─ publisher: DY
+│  ├─ email: dfcreative@gmail.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/color-name
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/color-name/LICENSE
+├─ color-name@1.1.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/colorjs/color-name
+│  ├─ publisher: DY
+│  ├─ email: dfcreative@gmail.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/color-string/node_modules/color-name
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/color-string/node_modules/color-name/LICENSE
+├─ color-string@1.9.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Qix-/color-string
+│  ├─ publisher: Heather Arthur
+│  ├─ email: fayearthur@gmail.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/color-string
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/color-string/LICENSE
+├─ color@3.2.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Qix-/color
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/color
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/color/LICENSE
+├─ colorspace@1.1.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/3rd-Eden/colorspace
+│  ├─ publisher: Arnout Kazemier
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/colorspace
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/colorspace/LICENSE.md
+├─ create-require@1.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/nuxt-contrib/create-require
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/create-require
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/create-require/LICENSE
+├─ diff@4.0.2
+│  ├─ licenses: BSD-3-Clause
+│  ├─ repository: https://github.com/kpdecker/jsdiff
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/diff
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/diff/LICENSE
+├─ dotenv@16.0.3
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/motdotla/dotenv
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/dotenv
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/dotenv/LICENSE
+├─ elliptic@6.5.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/indutny/elliptic
+│  ├─ publisher: Fedor Indutny
+│  ├─ email: fedor@indutny.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/elliptic
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/elliptic/README.md
+├─ enabled@2.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/3rd-Eden/enabled
+│  ├─ publisher: Arnout Kazemier
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/enabled
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/enabled/LICENSE
+├─ ethers@5.7.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ethers-io/ethers.js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/ethers
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/ethers/LICENSE.md
+├─ fecha@4.2.3
+│  ├─ licenses: MIT
+│  ├─ repository: git+https://taylorhakes@github.com/taylorhakes/fecha
+│  ├─ publisher: Taylor Hakes
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/fecha
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/fecha/LICENSE
+├─ fn.name@1.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/3rd-Eden/fn.name
+│  ├─ publisher: Arnout Kazemier
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/fn.name
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/fn.name/LICENSE
+├─ follow-redirects@1.15.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/follow-redirects/follow-redirects
+│  ├─ publisher: Ruben Verborgh
+│  ├─ email: ruben@verborgh.org
+│  ├─ url: https://ruben.verborgh.org/
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/follow-redirects
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/follow-redirects/LICENSE
+├─ hash.js@1.1.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/indutny/hash.js
+│  ├─ publisher: Fedor Indutny
+│  ├─ email: fedor@indutny.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/hash.js
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/hash.js/README.md
+├─ hmac-drbg@1.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/indutny/hmac-drbg
+│  ├─ publisher: Fedor Indutny
+│  ├─ email: fedor@indutny.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/hmac-drbg
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/hmac-drbg/README.md
+├─ inherits@2.0.4
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/inherits
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/inherits
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/inherits/LICENSE
+├─ is-arrayish@0.3.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/qix-/node-is-arrayish
+│  ├─ publisher: Qix
+│  ├─ url: http://github.com/qix-
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/is-arrayish
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/is-arrayish/LICENSE
+├─ is-stream@2.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/is-stream
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: https://sindresorhus.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/is-stream
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/is-stream/license
+├─ js-sha3@0.8.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/emn178/js-sha3
+│  ├─ publisher: Chen, Yi-Cyuan
+│  ├─ email: emn178@gmail.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/js-sha3
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/js-sha3/LICENSE.txt
+├─ kuler@2.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/3rd-Eden/kuler
+│  ├─ publisher: Arnout Kazemier
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/kuler
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/kuler/LICENSE
+├─ linq@3.2.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/mihaifm/linq
+│  ├─ publisher: Mihai Ciuraru
+│  ├─ email: mihaixc@gmail.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/linq
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/linq/LICENSE
+├─ logform@2.4.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/winstonjs/logform
+│  ├─ publisher: Charlie Robbins
+│  ├─ email: charlie.robbins@gmail.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/logform
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/logform/LICENSE
+├─ make-error@1.3.6
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/JsCommunity/make-error
+│  ├─ publisher: Julien Fontanet
+│  ├─ email: julien.fontanet@isonoe.net
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/make-error
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/make-error/LICENSE
+├─ minimalistic-assert@1.0.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/calvinmetcalf/minimalistic-assert
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/minimalistic-assert
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/minimalistic-assert/LICENSE
+├─ minimalistic-crypto-utils@1.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/indutny/minimalistic-crypto-utils
+│  ├─ publisher: Fedor Indutny
+│  ├─ email: fedor@indutny.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/minimalistic-crypto-utils
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/minimalistic-crypto-utils/README.md
+├─ moment@2.29.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/moment/moment
+│  ├─ publisher: Iskren Ivov Chernev
+│  ├─ email: iskren.chernev@gmail.com
+│  ├─ url: https://github.com/ichernev
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/moment
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/moment/LICENSE
+├─ ms@2.1.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vercel/ms
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/ms
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/ms/license.md
+├─ node-fetch@2.6.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/bitinn/node-fetch
+│  ├─ publisher: David Frank
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/node-fetch
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/node-fetch/LICENSE.md
+├─ one-time@1.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/3rd-Eden/one-time
+│  ├─ publisher: Arnout Kazemier
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/one-time
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/one-time/LICENSE
+├─ packet-reader@1.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/brianc/node-packet-reader
+│  ├─ publisher: Brian M. Carlson
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/packet-reader
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/packet-reader/README.md
+├─ pg-connection-string@2.5.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/brianc/node-postgres
+│  ├─ publisher: Blaine Bublitz
+│  ├─ email: blaine@iceddev.com
+│  ├─ url: http://iceddev.com/
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/pg-connection-string
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/pg-connection-string/LICENSE
+├─ pg-int8@1.0.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/charmander/pg-int8
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/pg-int8
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/pg-int8/LICENSE
+├─ pg-pool@3.5.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/brianc/node-postgres
+│  ├─ publisher: Brian M. Carlson
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/pg-pool
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/pg-pool/LICENSE
+├─ pg-protocol@1.5.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/brianc/node-postgres
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/pg-protocol
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/pg-protocol/LICENSE
+├─ pg-types@2.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/brianc/node-pg-types
+│  ├─ publisher: Brian M. Carlson
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/pg-types
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/pg-types/README.md
+├─ pg@8.8.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/brianc/node-postgres
+│  ├─ publisher: Brian Carlson
+│  ├─ email: brian.m.carlson@gmail.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/pg
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/pg/LICENSE
+├─ pgpass@1.0.5
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/hoegaarden/pgpass
+│  ├─ publisher: Hannes Hörl
+│  ├─ email: hannes.hoerl+pgpass@snowreporter.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/pgpass
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/pgpass/README.md
+├─ postgres-array@2.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/bendrucker/postgres-array
+│  ├─ publisher: Ben Drucker
+│  ├─ email: bvdrucker@gmail.com
+│  ├─ url: bendrucker.me
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/postgres-array
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/postgres-array/license
+├─ postgres-bytea@1.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/bendrucker/postgres-bytea
+│  ├─ publisher: Ben Drucker
+│  ├─ email: bvdrucker@gmail.com
+│  ├─ url: bendrucker.me
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/postgres-bytea
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/postgres-bytea/license
+├─ postgres-date@1.0.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/bendrucker/postgres-date
+│  ├─ publisher: Ben Drucker
+│  ├─ email: bvdrucker@gmail.com
+│  ├─ url: bendrucker.me
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/postgres-date
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/postgres-date/license
+├─ postgres-interval@1.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/bendrucker/postgres-interval
+│  ├─ publisher: Ben Drucker
+│  ├─ email: bvdrucker@gmail.com
+│  ├─ url: bendrucker.me
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/postgres-interval
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/postgres-interval/license
+├─ prisma@4.8.0
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/prisma/prisma
+│  ├─ publisher: Tim Suchanek
+│  ├─ email: suchanek@prisma.io
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/prisma
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/prisma/LICENSE
+├─ ramaris-blockchain@0.1.1
+│  ├─ licenses: AGPL-3.0-or-later
+│  ├─ publisher: Rene Zander
+│  └─ path: /Users/rza/Documents/ramaris/src/blockchain
+├─ readable-stream@3.6.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/nodejs/readable-stream
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/readable-stream
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/readable-stream/LICENSE
+├─ safe-buffer@5.2.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/feross/safe-buffer
+│  ├─ publisher: Feross Aboukhadijeh
+│  ├─ email: feross@feross.org
+│  ├─ url: https://feross.org
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/safe-buffer
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/safe-buffer/LICENSE
+├─ safe-stable-stringify@2.4.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/BridgeAR/safe-stable-stringify
+│  ├─ publisher: Ruben Bridgewater
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/safe-stable-stringify
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/safe-stable-stringify/LICENSE
+├─ scrypt-js@3.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ricmoo/scrypt-js
+│  ├─ publisher: Richard Moore
+│  ├─ email: me@ricmoo.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/scrypt-js
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/scrypt-js/LICENSE.txt
+├─ simple-swizzle@0.2.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/qix-/node-simple-swizzle
+│  ├─ publisher: Qix
+│  ├─ url: http://github.com/qix-
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/simple-swizzle
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/simple-swizzle/LICENSE
+├─ split2@4.1.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/mcollina/split2
+│  ├─ publisher: Matteo Collina
+│  ├─ email: hello@matteocollina.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/split2
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/split2/LICENSE
+├─ stack-trace@0.0.10
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/felixge/node-stack-trace
+│  ├─ publisher: Felix Geisendörfer
+│  ├─ email: felix@debuggable.com
+│  ├─ url: http://debuggable.com/
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/stack-trace
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/stack-trace/License
+├─ string_decoder@1.3.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/nodejs/string_decoder
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/string_decoder
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/string_decoder/LICENSE
+├─ text-hex@1.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/3rd-Eden/text-hex
+│  ├─ publisher: Arnout Kazemier
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/text-hex
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/text-hex/LICENSE
+├─ tr46@0.0.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Sebmaster/tr46.js
+│  ├─ publisher: Sebastian Mayr
+│  ├─ email: npm@smayr.name
+│  └─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/tr46
+├─ triple-beam@1.3.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/winstonjs/triple-beam
+│  ├─ publisher: Charlie Robbins
+│  ├─ email: charlie.robbins@gmail.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/triple-beam
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/triple-beam/LICENSE
+├─ ts-node@10.9.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/TypeStrong/ts-node
+│  ├─ publisher: Blake Embrey
+│  ├─ email: hello@blakeembrey.com
+│  ├─ url: http://blakeembrey.me
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/ts-node
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/ts-node/LICENSE
+├─ typescript@4.9.4
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/Microsoft/TypeScript
+│  ├─ publisher: Microsoft Corp.
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/typescript
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/typescript/LICENSE.txt
+├─ util-deprecate@1.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/TooTallNate/util-deprecate
+│  ├─ publisher: Nathan Rajlich
+│  ├─ email: nathan@tootallnate.net
+│  ├─ url: http://n8.io/
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/util-deprecate
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/util-deprecate/LICENSE
+├─ v8-compile-cache-lib@3.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/cspotcode/v8-compile-cache-lib
+│  ├─ publisher: Andrew Bradley
+│  ├─ email: cspotcode@gmail.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/v8-compile-cache-lib
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/v8-compile-cache-lib/LICENSE
+├─ webidl-conversions@3.0.1
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/jsdom/webidl-conversions
+│  ├─ publisher: Domenic Denicola
+│  ├─ email: d@domenic.me
+│  ├─ url: https://domenic.me/
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/webidl-conversions
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/webidl-conversions/LICENSE.md
+├─ whatwg-url@5.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jsdom/whatwg-url
+│  ├─ publisher: Sebastian Mayr
+│  ├─ email: github@smayr.name
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/whatwg-url
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/whatwg-url/LICENSE.txt
+├─ winston-transport@4.5.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/winstonjs/winston-transport
+│  ├─ publisher: Charlie Robbins
+│  ├─ email: charlie.robbins@gmail.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/winston-transport
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/winston-transport/LICENSE
+├─ winston@3.8.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/winstonjs/winston
+│  ├─ publisher: Charlie Robbins
+│  ├─ email: charlie.robbins@gmail.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/winston
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/winston/LICENSE
+├─ ws@7.4.6
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/websockets/ws
+│  ├─ publisher: Einar Otto Stangvik
+│  ├─ email: einaros@gmail.com
+│  ├─ url: http://2x.io
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/ws
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/ws/LICENSE
+├─ xtend@4.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Raynos/xtend
+│  ├─ publisher: Raynos
+│  ├─ email: raynos2@gmail.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/xtend
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/xtend/LICENSE
+├─ yn@3.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/yn
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/yn
+│  └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/yn/license
+└─ zod@3.20.2
+   ├─ licenses: MIT
+   ├─ repository: https://github.com/colinhacks/zod
+   ├─ publisher: Colin McDonnell
+   ├─ email: colin@colinhacks.com
+   ├─ path: /Users/rza/Documents/ramaris/src/blockchain/node_modules/zod
+   └─ licenseFile: /Users/rza/Documents/ramaris/src/blockchain/node_modules/zod/LICENSE
+

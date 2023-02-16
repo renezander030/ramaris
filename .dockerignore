@@ -1,0 +1,34 @@
+/node_modules
+/src/blockchain
+.env.local
+.env
+.next
+**/.git
+**/.vscode
+
+/prisma/migrations
+
+Dockerfile
+
+.dockerignore
+npm-debug.log
+
+.gitignore
+
+# docker compose file
+# deployment manifest akash
+*.yml
+
+# cicd file
+cicd.ps1
+
+# log files
+*.log
+
+# diagrams workbench ideas
+workbench
+
+# license info
+LICENSE
+
+README.md
