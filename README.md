@@ -39,8 +39,8 @@ yarn install
 `
 - create an account with Ankr, deposit tokens and put the api endpoint for the Polygon mainnet including your api key in the env.local file  
 `
-ANKR_URL_POLYGON_MAINNET_WEBSOCKET=  
-ANKR_API_KEY=
+    ANKR_URL_POLYGON_MAINNET_WEBSOCKET=
+    ANKR_API_KEY=
 `
 - create a free account with Alchemy and put the api credentials for the Polygon mainnet in the env.local file  
 `
