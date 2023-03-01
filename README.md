@@ -42,6 +42,7 @@ yarn install
     ANKR_URL_POLYGON_MAINNET_WEBSOCKET=
     ANKR_API_KEY=
 `
+asdf
 - create a free account with Alchemy and put the api credentials for the Polygon mainnet in the env.local file  
 `
 ALCHEMY_BASE_URL_POLYGON_MAINNET=
