@@ -47,8 +47,7 @@ Create a free account with Alchemy and put the api credentials for the Polygon m
 ```
 ALCHEMY_BASE_URL_POLYGON_MAINNET=
 ```
-Get free tier database from supabase
-Add the connection string to the env files for both components  
+Get free tier database from supabase. Add the connection string to the env files for both components  
 ```
 DATABASE_URL=
 ```
@@ -57,7 +56,7 @@ Seed the database
 cd ramaris  
 npx prisma db execute --file .\database\pglisten.sql
 ```
-Start the application. In the root folder for both applications you can use the same command to start the application.
+Start the application.
 ```
 npm start
 ```
