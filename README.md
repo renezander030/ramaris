@@ -1,5 +1,6 @@
 Today (May 2022) lots of applications exist that allow monitoring price action in the blockchain space. However, none of these I could find are free of charge or lack flexibility. Ramaris is free to use, licensed under MIT, and is flexible enough built upon a modular structure.
 
+MIT-licensed, flexible 
 
 # Built on top of proven technologies
 - ReactJS
@@ -19,6 +20,9 @@ Today (May 2022) lots of applications exist that allow monitoring price action i
 # Addons
 - monetize a winning rule set (Bot)
 - follow rule sets other users contributed
+
+# Demo
+You can see a live version of the app https://ramaris.app
 
 # Getting Started
 Here is how you can run the app on your own.
