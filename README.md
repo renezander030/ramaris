@@ -37,7 +37,7 @@ yarn install
 cd src/blockchain  
 yarn install
 `
-- create an account with Ankr, deposit tokens and put the api endpoint for the Polygon mainnet including your api key in the env.local file  
+Create an account with Ankr, deposit tokens and put the api endpoint for the Polygon mainnet including your api key in the env.local file  
 `
     ANKR_URL_POLYGON_MAINNET_WEBSOCKET=
     ANKR_API_KEY=
