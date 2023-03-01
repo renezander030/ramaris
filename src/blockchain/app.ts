@@ -61,6 +61,7 @@ const tokens250 = require('./tokens1.json');
 const tokens500 = require('./tokens2.json');
 
 declare var process: {
+  exit(arg0: number): unknown;
   env: {
     ANKR_URL_POLYGON_MAINNET_WEBSOCKET: string;
     NODE_ENV: string;
@@ -70,7 +71,54 @@ declare var process: {
 // initial config
 config({ path: '.env' })
 
-const provider = new ethers.providers.WebSocketProvider(process.env.ANKR_URL_POLYGON_MAINNET_WEBSOCKET);
+// const provider = new ethers.providers.WebSocketProvider(process.env.ANKR_URL_POLYGON_MAINNET_WEBSOCKET);
+
+// handles web socket reconnects : https://github.com/ethers-io/ethers.js/issues/1053
+const EXPECTED_PONG_BACK: number = 15000
+const KEEP_ALIVE_CHECK_INTERVAL: number = 7500
+
+export const startConnection = async () => {
+  let provider = new ethers.providers.WebSocketProvider(process.env.ANKR_URL_POLYGON_MAINNET_WEBSOCKET)
+
+  let pingTimeout: string | number | NodeJS.Timeout | undefined
+  let keepAliveInterval: string | number | NodeJS.Timeout | undefined
+
+  provider._websocket.on('open', () => {
+    keepAliveInterval = setInterval(() => {
+      logger.debug('Checking if the connection is alive, sending a ping')
+
+      provider._websocket.ping()
+
+      // Use `WebSocket#terminate()`, which immediately destroys the connection,
+      // instead of `WebSocket#close()`, which waits for the close timer.
+      // Delay should be equal to the interval at which your server
+      // sends out pings plus a conservative assumption of the latency.
+      pingTimeout = setTimeout(() => {
+        provider._websocket.terminate()
+      }, EXPECTED_PONG_BACK)
+    }, KEEP_ALIVE_CHECK_INTERVAL)
+
+    // TODO: handle contract listeners setup + indexing
+  })
+
+  provider._websocket.on('close', () => {
+    logger.error('The websocket connection was closed')
+    clearInterval(keepAliveInterval)
+    clearTimeout(pingTimeout)
+    startConnection()
+  })
+
+  provider._websocket.on('pong', () => {
+    logger.debug('Received pong, so connection is alive, clearing the timeout')
+    clearInterval(pingTimeout)
+  })
+
+  return provider;
+}
+
+
+
+
 export const api_endpoint = `https://rpc.ankr.com/multichain`;
 let tokens = tokens250.concat(tokens500);
 const manualTokenList = [{ symbol: "wmatic" }, { symbol: "weth" },]
@@ -93,6 +141,10 @@ async function main() {
 
   await postgresClient.connect();
   logger.info(`connected to postgres`);
+
+  // connects to web socket server Ankr
+  const provider = await startConnection()
+
 
   // Listen for notifications on the 'core_db_event' channel
   postgresClient.on('notification', async (msg: Notification) => {
