@@ -29,17 +29,17 @@ git clone https://github.com/renezander030/ramaris.git
 `
 - install dependencies for the ui component  
 `
-cd ramaris
+cd ramaris  
 yarn install
 `
 - install dependencies for the blockchain component  
 `
-cd src/blockchain
+cd src/blockchain  
 yarn install
 `
 - create an account with Ankr, deposit tokens and put the api endpoint for the Polygon mainnet including your api key in the env.local file  
 `
-ANKR_URL_POLYGON_MAINNET_WEBSOCKET=
+ANKR_URL_POLYGON_MAINNET_WEBSOCKET=  
 ANKR_API_KEY=
 `
 - create a free account with Alchemy and put the api credentials for the Polygon mainnet in the env.local file  
@@ -53,11 +53,11 @@ DATABASE_URL=
 `
 - seed the database  
 `
-cd ramaris
+cd ramaris  
 npx prisma db execute --file .\database\pglisten.sql
 `
-- run the application  
-both applications:
+- start the application  
+In the root folder for both applications you can use the same command to start the application.
 `
 npm start
 `
