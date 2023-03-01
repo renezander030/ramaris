@@ -23,6 +23,7 @@ Today (May 2022) lots of applications exist that allow monitoring price action i
 # Getting Started
 Here is how you can run the app on your own.
 
+
 Clone this repository  
 ```
 git clone https://github.com/renezander030/ramaris.git  
@@ -39,26 +40,24 @@ yarn install
 ```
 Create an account with Ankr, deposit tokens and put the api endpoint for the Polygon mainnet including your api key in the env.local file  
 ```
-    ANKR_URL_POLYGON_MAINNET_WEBSOCKET=  
-    ANKR_API_KEY=
-```  
-asdf  
-- create a free account with Alchemy and put the api credentials for the Polygon mainnet in the env.local file  
+ANKR_URL_POLYGON_MAINNET_WEBSOCKET=  
+ANKR_API_KEY=
+```    
+Create a free account with Alchemy and put the api credentials for the Polygon mainnet in the env.local file  
 ```
 ALCHEMY_BASE_URL_POLYGON_MAINNET=
 ```
-- get free tier database from supabase
-- add the connection string to the env files for both components  
+Get free tier database from supabase
+Add the connection string to the env files for both components  
 ```
 DATABASE_URL=
 ```
-- seed the database  
+Seed the database  
 ```
 cd ramaris  
 npx prisma db execute --file .\database\pglisten.sql
 ```
-- start the application  
-In the root folder for both applications you can use the same command to start the application.
+Start the application. In the root folder for both applications you can use the same command to start the application.
 ```
 npm start
 ```
