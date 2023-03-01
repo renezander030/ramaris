@@ -25,24 +25,24 @@ Here is how you can run the app on your own.
 
 Clone this repository  
 `
-git clone https://github.com/renezander030/ramaris.git
+git clone https://github.com/renezander030/ramaris.git  
 `
 Install dependencies for the ui component  
 `
 cd ramaris  
-yarn install
+yarn install  
 `
 Install dependencies for the blockchain component  
 `
 cd src/blockchain  
-yarn install
+yarn install  
 `
 Create an account with Ankr, deposit tokens and put the api endpoint for the Polygon mainnet including your api key in the env.local file  
 `
-    ANKR_URL_POLYGON_MAINNET_WEBSOCKET=
+    ANKR_URL_POLYGON_MAINNET_WEBSOCKET=  
     ANKR_API_KEY=
-`
-asdf
+`  
+asdf  
 - create a free account with Alchemy and put the api credentials for the Polygon mainnet in the env.local file  
 `
 ALCHEMY_BASE_URL_POLYGON_MAINNET=
