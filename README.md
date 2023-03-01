@@ -23,7 +23,7 @@ Today (May 2022) lots of applications exist that allow monitoring price action i
 # Getting Started
 Here is how you can run the app on your own.
 
-- clone this repository
+- clone this repository  
 `
 git clone https://github.com/renezander030/ramaris.git
 `
