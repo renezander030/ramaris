@@ -27,36 +27,36 @@ Here is how you can run the app on your own.
 `
 git clone https://github.com/renezander030/ramaris.git
 `
-- install dependencies for the ui component
+- install dependencies for the ui component  
 `
 cd ramaris
 yarn install
 `
-- install dependencies for the blockchain component
+- install dependencies for the blockchain component  
 `
 cd src/blockchain
 yarn install
 `
-- create an account with Ankr, deposit tokens and put the api endpoint for the Polygon mainnet including your api key in the env.local file
+- create an account with Ankr, deposit tokens and put the api endpoint for the Polygon mainnet including your api key in the env.local file  
 `
 ANKR_URL_POLYGON_MAINNET_WEBSOCKET=
 ANKR_API_KEY=
 `
-- create a free account with Alchemy and put the api credentials for the Polygon mainnet in the env.local file
+- create a free account with Alchemy and put the api credentials for the Polygon mainnet in the env.local file  
 `
 ALCHEMY_BASE_URL_POLYGON_MAINNET=
 `
 - get free tier database from supabase
-- add the connection string to the env files for both components
+- add the connection string to the env files for both components  
 `
 DATABASE_URL=
 `
-- seed the database
+- seed the database  
 `
 cd ramaris
 npx prisma db execute --file .\database\pglisten.sql
 `
-- run the application
+- run the application  
 both applications:
 `
 npm start
