@@ -23,16 +23,16 @@ Today (May 2022) lots of applications exist that allow monitoring price action i
 # Getting Started
 Here is how you can run the app on your own.
 
-- clone this repository  
+Clone this repository  
 `
 git clone https://github.com/renezander030/ramaris.git
 `
-- install dependencies for the ui component  
+Install dependencies for the ui component  
 `
 cd ramaris  
 yarn install
 `
-- install dependencies for the blockchain component  
+Install dependencies for the blockchain component  
 `
 cd src/blockchain  
 yarn install
