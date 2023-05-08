@@ -37,7 +37,7 @@ export default function BotSearch() {
 
     return (
         <>
-            <label htmlFor="BotSearch" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Bots</label>
+            <label htmlFor="BotSearch" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">bots to follow</label>
             <Controller
                 name="botsFollowing"
                 control={control}

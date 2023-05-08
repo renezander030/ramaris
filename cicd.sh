@@ -7,8 +7,11 @@
       cicd.sh 
 notes
 
-docker build -t dolankirza/public:ramaris-blockchain-0.1.24 .
-docker push dolankirza/public:ramaris-blockchain-0.1.24
+# build on plaintexthell
+export DOCKER_HOST=192.168.0.9
+
+docker build -t dolankirza/public:ramaris-blockchain-0.1.25 .
+docker push dolankirza/public:ramaris-blockchain-0.1.26
 
 >>comment
 set -ex

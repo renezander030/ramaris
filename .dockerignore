@@ -26,7 +26,7 @@ cicd.ps1
 *.log
 
 # diagrams workbench ideas
-workbench
+/workbench
 
 # license info
 LICENSE

@@ -30,7 +30,7 @@ const { ethers } = require("ethers");
 // app imports
 import { prisma } from './services/prisma';
 import logger from './components/logger'
-import addresses from './constants';
+import { addresses } from './constants';
 import getBalance from './components/getBalance';
 import getTransaction from './components/getTransaction'
 import delay from './utils/delay'
@@ -43,6 +43,38 @@ import { postgresClient } from './services/pglisten';
 import { Notification } from 'pg';
 import z from 'zod'
 import type { BotIdSchema, CreateBotSchema, CreatePositionSchema } from './schema/position.schema'
+import { forEach } from 'lodash';
+import { error } from 'console';
+const fetch = require('node-fetch');
+const UNISWAP = require("@uniswap/sdk")
+const { getAddress } = require("ethers/lib/utils");
+const { ChainId, SupportedChainId, nearestUsableTick, TickMath, FullMath, Pool, Position, Trade, FeeAmount, encodeRouteToPath, Route } = require('@uniswap/v3-sdk')
+const { abi: IUniswapV3PoolABI } = require("@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Pool.sol/IUniswapV3Pool.json")
+const { abi: IUniswapV3FactoryABI } = require("@uniswap/v3-core/artifacts/contracts/UniswapV3Factory.sol/UniswapV3Factory.json")
+const { abi: INonfungiblePositionManagerABI } = require('@uniswap/v3-periphery/artifacts/contracts/interfaces/INonfungiblePositionManager.sol/INonfungiblePositionManager.json')
+const Quoter = require('@uniswap/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json')
+const QuoterAbi = require('./abis/QuoterAbi.json')
+const RouterAbi = require('./abis/QuickSwapRouter.json')
+const { TokenAmount, WETH, Pair } = require("@uniswap/sdk");
+const { Currency, Token, CurrencyAmount, Percent, TradeType, Fetcher } = require('@uniswap/sdk-core')
+const ERC20ABI = require('./abis/ERC20.json')
+import { getOutputQuote, getTokenTransferApproval } from './utils/uniswap/trading'
+import { CurrentConfig } from './utils/uniswap/config'
+
+
+const { NonceManager } = require('@ethersproject/experimental');
+
+const TELEGRAM_BASE_URL = `https://api.telegram.org/bot`;
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const TELEGRAM_HTTP_ENDPOINT = `${TELEGRAM_BASE_URL}${TELEGRAM_BOT_TOKEN}`
+
+import { FACTORY_ADDRESS, INIT_CODE_HASH, JSBI } from '@uniswap/sdk'
+import { pack, keccak256 } from '@ethersproject/solidity'
+import { getCreate2Address } from '@ethersproject/address'
+import { parseEther } from 'ethers/lib/utils';
+import { fromReadableAmount } from './utils/uniswap/utils';
+import { SwapOptions, SwapRouter } from '@uniswap/v3-sdk';
+import { ERC20_ABI, MAX_FEE_PER_GAS, MAX_PRIORITY_FEE_PER_GAS, QUOTER_CONTRACT_ADDRESS, SWAP_ROUTER_ADDRESS, TOKEN_AMOUNT_TO_APPROVE_FOR_TRANSFER } from './utils/uniswap/constants';
 
 // talks to ankr using AnkrJS
 // takes address. gives balances for assets
@@ -63,9 +95,13 @@ const tokens500 = require('./tokens2.json');
 declare var process: {
   exit(arg0: number): unknown;
   env: {
+    DATABASE_URL: any;
     ANKR_URL_POLYGON_MAINNET_WEBSOCKET: string;
+    ANKR_URL_POLYGON_MAINNET: string;
     NODE_ENV: string;
     MIN_TRANSFER_VALUE_USD: number;
+    POLYGON_MAINNET_TOKEN_CONTRACT_TETHER: string;
+    TELEGRAM_BOT_TOKEN: string;
   }
 }
 // initial config
@@ -84,6 +120,7 @@ export const startConnection = async () => {
   let keepAliveInterval: string | number | NodeJS.Timeout | undefined
 
   provider._websocket.on('open', () => {
+    logger.debug(`connection ethers open`)
     keepAliveInterval = setInterval(() => {
       logger.debug('Checking if the connection is alive, sending a ping')
 
@@ -118,7 +155,6 @@ export const startConnection = async () => {
 
 
 
-
 export const api_endpoint = `https://rpc.ankr.com/multichain`;
 let tokens = tokens250.concat(tokens500);
 const manualTokenList = [{ symbol: "wmatic" }, { symbol: "weth" },]
@@ -137,6 +173,244 @@ logger.info(`${JSON.stringify({
 })}`)
 
 
+
+// after positions have been inserted trigger opening positions
+async function openPositions(positionToCreate: any, provider: any) {
+
+  // filters out all positions but where token contract is tether
+  // positions where USDT is not involved are not included yet
+  if (positionToCreate?.sentTokenContract?.contractAddress != process.env.POLYGON_MAINNET_TOKEN_CONTRACT_TETHER) positionToCreate = null;
+
+  // creates transactions for the users
+  // ***
+  // gets all relations showing users who do follow the bot that generated this position
+  const starredBots = positionToCreate?.bot?.StarBot.map((starBot: any) => { return starBot });
+
+  starredBots?.every(async (starBot: { user: any; copyIsEnabled: any; positionSizePercentage: number; userId: any; botId: any; }) => {
+
+    const user = starBot.user;
+
+    logger.info(`checking user is copying this bot - user ${user.email}`)
+
+    // user where copy for this bot is disabled but follow: just notify
+    if (!starBot.copyIsEnabled) {
+
+      logger.info(`user is not copying only follow ${user.email}`)
+
+      // notify user
+      const Message = {
+        chat_id: positionToCreate?.bot?.StarBot.at(0)?.user.telegram_chatid,
+        text: `Bot ${positionToCreate?.bot?.name}: New Position Opened ${positionToCreate?.amountOutMin} USDT for ${positionToCreate?.amountIn} ${positionToCreate?.receivedTokenContract.symbol}`
+      }
+      const response = await fetch(`${TELEGRAM_HTTP_ENDPOINT}/sendMessage`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(Message)
+      });
+      const data = await response.json();
+
+      return false
+    };
+
+    const tradingaccount = user.TradingAccount.find((tradingaccount: any) => { return tradingaccount });
+
+    // skip user without trading accounts
+    if (!tradingaccount) return false;
+
+    logger.info(`user is copying, has trading account ${user.email}`)
+
+    // check limits on trading account might have been hit already
+    // get all trades in the last 24 hours
+    const tradesOnTradingAccount = await prisma.tradingAccount.findUnique({
+      where: {
+        id: tradingaccount?.id
+      },
+      select: {
+        trades: {
+          where: {
+            createdAt: {
+              gte: new Date(new Date().getTime() - (24 * 60 * 60 * 1000))
+            }
+          },
+          select: {
+            Position: {
+              select: {
+                receivedTokenContract: {
+                  select: {
+                    contractAddress: true
+                  }
+                },
+                botId: true
+              }
+            }
+          }
+        }
+      }
+    })
+
+    logger.info(`processing rule book..`)
+
+    // skip user where limit for max trades has been hit
+    // const amountOfTradesPerBotToday = tradesOnTradingAccount?.trades.filter(trade => { return trade.Position?.botId == positionToCreate?.bot?.id }).length
+    // if (amountOfTradesPerBotToday && tradingaccount.maxPositionsPerBotPerDay && amountOfTradesPerBotToday <= tradingaccount?.maxPositionsPerBotPerDay) return false;
+
+    // const amountOfTradesPerTokenToday = tradesOnTradingAccount?.trades.filter(trade => { return trade.Position?.receivedTokenContract.contractAddress == positionToCreate?.receivedTokenContract.contractAddress }).length
+    // if (amountOfTradesPerTokenToday && tradingaccount.maxPositionsPerTokenPerDay && amountOfTradesPerTokenToday <= tradingaccount.maxPositionsPerTokenPerDay) return false;
+
+
+    // skip user when amounts sent is missing
+    if (!positionToCreate?.amountOutMin) return false;
+
+    // calculate position size, default to 0.1 USDT
+    const decimalsUsdt = 6;
+    const positionSize = ethers.utils.parseUnits('0.1', decimalsUsdt);
+
+    logger.info(`tradingaccount positionSizePercentage ${tradingaccount?.positionSizePercentage}`)
+
+    // take percentage from tradingaccount, calculate with sent amounts
+    // if (tradingaccount?.positionSizePercentage) positionSize = (positionToCreate?.amountOutMin / 100) * tradingaccount?.positionSizePercentage;
+    // logger.info(`positionSize tradingaccount positionSizePercentage ${positionSize}`)
+
+
+    // // override pos size if set on bot level
+    // if (starBot.positionSizePercentage) positionSize = (positionToCreate.amountOutMin / 100) * starBot.positionSizePercentage;
+    // logger.info(`positionSize starBot positionSizePercentage ${positionSize}`)
+
+
+    const private_key = tradingaccount?.private_key;
+
+    // creates wallet instances from private keys
+    const wallet = new ethers.Wallet(private_key, provider);
+
+    logger.info(`connecting to polygon mainnet..`)
+
+    try {
+
+      const router = new ethers.Contract(
+        addresses.QuickSwapRouter,
+        RouterAbi,
+        wallet
+      );
+
+      const sentToken = positionToCreate.sentTokenContract.contractAddress
+      const receivedToken = positionToCreate.receivedTokenContract.contractAddress
+      const gasLimit = 200000
+      const gasPrice = provider.getGasPrice()
+      const deadline = Date.now() + 1000 * 60 * 10 //10 minutes
+      const amounts = await router.getAmountsOut(positionSize, [sentToken, receivedToken]);
+      const amountOutMin = amounts[1].sub(amounts[1].div(10));
+
+      logger.debug(`sending transaction..`)
+      const transaction = await router.swapExactTokensForTokens(
+        positionSize,
+        amountOutMin,
+        [sentToken, receivedToken],
+        wallet.address,
+        deadline,
+        {
+          gasLimit: gasLimit,
+          gasPrice: gasPrice
+        }
+      );
+      const receipt = await transaction.wait();
+
+      const hashUrl = `https://polygonscan.com/tx/${receipt.transactionHash}`
+      logger.debug(`Transaction Complete: ${hashUrl}`);
+
+      logger.info(`documenting trade in trades table..`)
+
+      await prisma.trades.create({
+        data: {
+          Position: {
+            connect: {
+              id: positionToCreate?.id
+            }
+          },
+          TradingAccount: {
+            connect: {
+              id: tradingaccount?.id
+            }
+          },
+          state: "Completed",
+          tradeSizePercentage: parseInt(ethers.utils.formatUnits(positionSize, decimalsUsdt))
+        }
+      })
+
+      // notifies user
+      logger.info(`notifying user..`)
+      const Message = {
+        chat_id: positionToCreate?.bot?.StarBot.at(0)?.user.telegram_chatid,
+        text: `New Trade Opened ${positionToCreate?.amountOutMin} USDT for ${positionToCreate?.amountIn} ${positionToCreate?.receivedTokenContract.symbol} - ${hashUrl}`
+      }
+      const response = await fetch(`${TELEGRAM_HTTP_ENDPOINT}/sendMessage`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(Message)
+      });
+      const data = await response.json();
+
+      process.exit(0)
+    }
+    catch (error) {
+
+      logger.error(`error sending ethers transaction - position ID ${positionToCreate?.id} - ${error}`);
+
+      logger.info(`documenting failed trade..`)
+      // documents failed trade attempt
+      await prisma.trades.create({
+        data: {
+          Position: {
+            connect: {
+              id: positionToCreate?.id
+            }
+          },
+          TradingAccount: {
+            connect: {
+              id: tradingaccount?.id
+            }
+          },
+          state: "Failed",
+          errorDetail: `${error}`
+        }
+      })
+
+      // disables copy of affected bot
+      logger.info(`disabling copy for this bot - user ${starBot.userId} bot ${starBot.botId}`)
+      const disableCopy = await prisma.starBot.update({
+        where: {
+          userId_botId: {
+            botId: starBot.botId,
+            userId: starBot.userId
+          }
+        },
+        data: {
+          copyIsEnabled: false
+        }
+      })
+
+      // notifies user
+      // tx failed, copy was disabled for bot (disableCopy.botId)
+      logger.info(`notifying user about failed trade..`)
+      const Message = {
+        chat_id: positionToCreate?.bot?.StarBot.at(0)?.user.telegram_chatid,
+        text: `Trade Failed ${positionToCreate?.amountOutMin} USDT for ${positionToCreate?.amountIn} ${positionToCreate?.receivedTokenContract.symbol} - Copy for Bot temporarily disabled ${disableCopy.botId} - full error ${error}`
+      }
+      const response = await fetch(`${TELEGRAM_HTTP_ENDPOINT}/sendMessage`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(Message)
+      });
+      const data = await response.json();
+    }
+  })
+}
+
 async function main() {
 
   await postgresClient.connect();
@@ -153,7 +427,6 @@ async function main() {
       try {
         let parsedEvent: Notification & { record: unknown, identity: string } = JSON.parse(msg.payload as unknown as string);
         console.log(parsedEvent)
-
 
         // parsed event is from Swap table
         if (parsedEvent.identity == 'Swap') {
@@ -187,11 +460,11 @@ async function main() {
 
             const botsFollowingWalletInThisSwap = await createPosition.bot.findMany({
               // where: {
-              //     wallets: {
-              //         some: {
-              //             walletId: positionFromSwap.walletId
-              //         }
+              //   wallets: {
+              //     some: {
+              //       walletId: positionFromSwap.walletId
               //     }
+              //   }
               // },
               select: {
                 id: true,
@@ -204,9 +477,11 @@ async function main() {
 
             await Promise.all(botsFollowingWalletInThisSwap.map(async (bot) => {
 
-              return await createPosition.position.create({
+              const positionId = parseFloat(`${positionFromSwap.id}${bot.id}`);
+
+              const newPosition = await createPosition.position.create({
                 data: {
-                  id: parseFloat(`${positionFromSwap.id}${bot.id}`),
+                  id: positionId,
                   amountIn: positionFromSwap.amountIn,
                   amountOutMin: positionFromSwap.amountOutMin,
                   sentTokenContract: {
@@ -233,13 +508,69 @@ async function main() {
                     }
                   },
                   actionType: "long" // for now all positions are created as long positions only
+                },
+                select: {
+                  id: true,
+                  receivedTokenContract: {
+                    select: {
+                      contractAddress: true,
+                      symbol: true
+                    }
+                  },
+                  sentTokenContract: {
+                    select: {
+                      contractAddress: true
+                    }
+                  },
+                  interactedContract: {
+                    select: {
+                      contractAddress: true
+                    }
+                  },
+                  amountOutMin: true,
+                  amountIn: true,
+                  bot: {
+                    select: {
+                      StarBot: {
+                        select: {
+                          user: {
+                            select: {
+                              gateio_api_key: true,
+                              gateio_api_secret: true,
+                              telegram_chatid: true,
+                              email: true,
+                              TradingAccount: {
+                                select: {
+                                  private_key: true,
+                                  ethereum_address: true,
+                                  id: true,
+                                  maxPositionsPerBotPerDay: true,
+                                  maxPositionsPerTokenPerDay: true,
+                                  positionSizePercentage: true
+                                }
+                              }
+                            }
+                          },
+                          copyIsEnabled: true,
+                          positionSizePercentage: true,
+                          botId: true,
+                          userId: true
+                        }
+                      },
+                      id: true,
+                      name: true
+                    }
+                  }
                 }
               })
 
-            }))
 
+              return await openPositions(newPosition, provider)
+            }))
           })
         }
+
+
         // parsed event is from Position table
         else if (parsedEvent.identity == 'Position') {
           /*
@@ -275,16 +606,17 @@ async function main() {
             })
 
             // create positions
-            botsFollowingBotIdInThisPosition.forEach(async (bot) => {
+            botsFollowingBotIdInThisPosition.forEach(async (position) => {
 
-              if (bot) {
+              if (position) {
 
                 // pos size % can be null so here it is defined
-                const positionSizePercentage = bot.bot?.positionSizePercentage as number;
+                const positionSizePercentage = position.bot?.positionSizePercentage as number;
+                const positionId = parseFloat(`${position.bot?.id}${positionFromPosition.botId}`);
 
-                await createPosition.position.create({
+                const newPosition = await createPosition.position.create({
                   data: {
-                    id: parseFloat(`${bot.bot?.id}${positionFromPosition.botId}`),
+                    id: positionId,
                     actionType: "long",
                     amountIn: positionFromPosition.amountIn,
                     amountOutMin: positionFromPosition.amountOutMin,
@@ -299,8 +631,8 @@ async function main() {
                       }
                     },
                     positionSizePercentage: positionSizePercentage,
-                    takeprofitPercentage: bot.bot?.takeprofitPercentage,
-                    stoplossPercentage: bot.bot?.stoplossPercentage,
+                    takeprofitPercentage: position.bot?.takeprofitPercentage,
+                    stoplossPercentage: position.bot?.stoplossPercentage,
                     interactedContract: {
                       connect: {
                         contractAddress: positionFromPosition.TokenContract.contractAddress
@@ -308,11 +640,65 @@ async function main() {
                     },
                     bot: {
                       connect: {
-                        id: bot.bot?.id
+                        id: position.bot?.id
                       }
                     },
+                  },
+                  select: {
+                    id: true,
+                    receivedTokenContract: {
+                      select: {
+                        contractAddress: true,
+                        symbol: true
+                      }
+                    },
+                    sentTokenContract: {
+                      select: {
+                        contractAddress: true
+                      }
+                    },
+                    interactedContract: {
+                      select: {
+                        contractAddress: true
+                      }
+                    },
+                    amountOutMin: true,
+                    amountIn: true,
+                    bot: {
+                      select: {
+                        StarBot: {
+                          select: {
+                            user: {
+                              select: {
+                                gateio_api_key: true,
+                                gateio_api_secret: true,
+                                telegram_chatid: true,
+                                email: true,
+                                TradingAccount: {
+                                  select: {
+                                    private_key: true,
+                                    ethereum_address: true,
+                                    id: true,
+                                    maxPositionsPerBotPerDay: true,
+                                    maxPositionsPerTokenPerDay: true,
+                                    positionSizePercentage: true
+                                  }
+                                }
+                              }
+                            },
+                            copyIsEnabled: true,
+                            positionSizePercentage: true,
+                            botId: true,
+                            userId: true
+                          }
+                        },
+                        id: true,
+                        name: true
+                      }
+                    }
                   }
                 })
+                return await openPositions(newPosition, provider)
               }
             })
           })

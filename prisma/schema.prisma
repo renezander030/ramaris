@@ -104,7 +104,7 @@ model Bot {
   transactionValue       Int[]
   gasValue               Int[]
   actions                ActionsOnBots[]
-  creator                User?           @relation(fields: [creatorId], references: [id])
+  creator                User            @relation(fields: [creatorId], references: [id])
   creatorId              String          @map("user_id")
   positions              Position[]
   StarBot                StarBot[]
@@ -178,6 +178,40 @@ model Contract {
   Position        Position[]
 }
 
+model TradingAccount {
+  id                         Int      @id @default(autoincrement())
+  public_key                 String   @unique
+  private_key                String   @unique
+  mnemonic_phrase            String   @unique
+  mnemonic_entropy           String   @unique
+  ethereum_address           String   @unique
+  User                       User     @relation(fields: [userId], references: [id])
+  userId                     String
+  trades                     Trades[]
+  maxPositionsPerBotPerDay   Int?     @default(3)
+  maxPositionsPerTokenPerDay Int?     @default(3)
+  positionSizePercentage     Int?     @default(1) // this can override what has been set on a bot - relates to trading account available equity
+}
+
+// Trades - this is to have limits on the trading account on top of the limits the bot has
+// Position-->botid (limit max trades per bot per day)
+// Position-->token (limit max trades per token per day)
+// Position-->size (max size per day)
+// (..returning data from successful executed trade, timestamp, gas fees, tx hash)
+model Trades {
+  id Int @id @default(autoincrement())
+
+  Position   Position? @relation(fields: [positionId], references: [id])
+  positionId Int?
+
+  TradingAccount      TradingAccount? @relation(fields: [tradingAccountId], references: [id])
+  tradingAccountId    Int?
+  createdAt           DateTime        @default(now())
+  state               String
+  errorDetail         String?
+  tradeSizePercentage Int?            @default(1) // this will allow tracking in hindsight what trade size percentage was used on
+}
+
 // insert into position originate from SP_swap_changed and bots matching having actions include position
 // actions send telegram messages are included as well. difference is shown in prop positionType
 model Position {
@@ -191,7 +225,7 @@ model Position {
   actionType   String // long/short. on app version 0.1 only spot buys. action type = long
 
   // not to be used from a relation: bot parameters - point in time values
-  positionSizePercentage Int
+  positionSizePercentage Int  @default(1) // relates to balance of followed wallet (following bots copy)
   takeprofitPercentage   Int?
   stoplossPercentage     Int?
   // contract relation - interacted contract
@@ -203,10 +237,11 @@ model Position {
   receivedTokenContractId Int
   // bot relation
   botId                   Int
-  bot                     Bot?          @relation(fields: [botId], references: [id], onDelete: Cascade)
+  bot                     Bot           @relation(fields: [botId], references: [id], onDelete: Cascade)
 
   interactedContract Contract @relation(fields: [contractId], references: [id])
   contractId         Int
+  trades             Trades[]
 }
 
 model Query {
@@ -244,11 +279,13 @@ model StarWallet {
 
 model StarBot {
   // id     Int    @id @default(autoincrement())
-  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId     String
-  bot        Bot      @relation(fields: [botId], references: [id], onDelete: Cascade)
-  botId      Int
-  followedAt DateTime @default(now())
+  user                   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId                 String
+  bot                    Bot      @relation(fields: [botId], references: [id], onDelete: Cascade)
+  botId                  Int
+  followedAt             DateTime @default(now())
+  copyIsEnabled          Boolean
+  positionSizePercentage Int      @default(1) // user can override value defined on trading account level
 
   @@id([userId, botId])
   @@map(name: "starredbots")
@@ -264,24 +301,29 @@ model StarBoard {
 }
 
 model User {
-  id              String       @id @default(cuid())
-  name            String?
-  email           String?      @unique
-  emailVerified   DateTime?
-  image           String?
-  createdAt       DateTime     @default(now()) @map(name: "created_at")
-  updatedAt       DateTime     @updatedAt @map(name: "updated_at")
-  bybitApiKey     String?
-  ethereumAddress String?
-  accounts        Account[]
-  sessions        Session[]
-  createdBots     String[]
-  StarWallet      StarWallet[]
-  StarBot         StarBot[]
-  StarBoard       StarBoard[]
-  Bot             Bot[]
-  Dashboard       Dashboard[]
-  LoginToken      LoginToken[]
+  id                String           @id @default(cuid())
+  name              String?
+  email             String?          @unique
+  username          String           @unique
+  emailVerified     DateTime?
+  image             String?
+  createdAt         DateTime         @default(now()) @map(name: "created_at")
+  updatedAt         DateTime         @updatedAt @map(name: "updated_at")
+  bybitApiKey       String?
+  telegram_chatid   String?
+  gateio_api_key    String?
+  gateio_api_secret String?
+  TradingAccount    TradingAccount[]
+  ethereumAddress   String?
+  accounts          Account[]
+  sessions          Session[]
+  createdBots       String[]
+  StarWallet        StarWallet[]
+  StarBot           StarBot[]
+  StarBoard         StarBoard[]
+  Bot               Bot[]
+  Dashboard         Dashboard[]
+  LoginToken        LoginToken[]
 
   @@map(name: "users")
 }

@@ -43,7 +43,7 @@ next-env.d.ts
 # .dockerignore
 
 # diagrams workbench ideas
-workbench
+/workbench
 
 # deployment files
 **/docker-compose.yml

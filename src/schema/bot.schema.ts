@@ -9,10 +9,7 @@ export const createBotSchema = z.object({
     id: z.number(),
     walletAddress: z.string()
   }).array().optional(),
-  weekdays: z.object({
-    min: z.number(),
-    max: z.number()
-  }).optional(),
+  weekdays: z.number().array().optional(),
   botsFollowing: z.object({
     id: z.number(),
     name: z.string()
@@ -23,10 +20,6 @@ export const createBotSchema = z.object({
   blacklistProtocols: z.string().array(),
   transactionValue: z.number().array(),
   gasValue: z.number().array(),
-  actions: z.object({
-    id: z.number(),
-    name: z.string()
-  }).array().min(1),
   positionSizePercentage: z.number(),
   takeprofitPercentage: z.number().optional(),
   stoplossPercentage: z.number().optional()
@@ -34,24 +27,33 @@ export const createBotSchema = z.object({
 
 export const updateBotSchema = z.object({
   id: z.number(),
-  name: z.string(),
-  shareId: z.string(),
-  state: z.boolean(),
-  wallets: z.string().array(),
-  weekdays: z.object({
-    min: z.number(),
-    max: z.number()
-  }),
-  hours: z.number().array(),
-  whitelistTokens: z.string().array(),
-  blacklistTokens: z.string().array(),
-  blacklistProtocols: z.string().array(),
-  transactionValue: z.number().array(),
-  gasValue: z.number().array(),
-  actions: z.string().array(),
-  positionSizePercentage: z.number(),
+  name: z.string().optional(),
+  shareId: z.string().optional(),
+  state: z.boolean().optional(),
+  wallets: z.object({
+    id: z.number(),
+    walletAddress: z.string()
+  }).array().optional(),
+  weekdays: z.number().array().optional(),
+  botsFollowing: z.object({
+    id: z.number(),
+    name: z.string()
+  }).array().optional(),
+  hours: z.number().array().optional(),
+  whitelistTokens: z.string().array().optional(),
+  blacklistTokens: z.string().array().optional(),
+  blacklistProtocols: z.string().array().optional(),
+  transactionValue: z.number().array().optional(),
+  gasValue: z.number().array().optional(),
+  positionSizePercentage: z.number().optional(),
   takeprofitPercentage: z.number().optional(),
   stoplossPercentage: z.number().optional()
+})
+
+export const updateStarredBotsSchema = z.object({
+  botId: z.number(),
+  copyIsEnabled: z.boolean(),
+  positionSizePercentage: z.number()
 })
 
 export const followBotSchema = z.object({

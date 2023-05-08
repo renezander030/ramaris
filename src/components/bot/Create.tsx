@@ -10,9 +10,8 @@ import MultiRangeSlider from '../RangeSlider';
 import RangeSlider from '../rangeslider2';
 import dynamic from "next/dynamic"
 import { CopyClipboard } from '../copyToClipboard';
-import ActionSearch from '../ActionSearch';
-import { ErrorMessage } from '@hookform/error-message';
 import { useRouter } from 'next/router'
+import { ErrorMessage } from '@hookform/error-message';
 
 export default function Create() {
 
@@ -38,9 +37,6 @@ export default function Create() {
         transactionValue: [1, 2],
         // weekdays: [0, 4],
         gasValue: [0, 1, 2],
-        actions: [
-            { id: 1, name: "Telegram Notification" }
-        ],
         positionSizePercentage: 1
     };
 
@@ -180,9 +176,6 @@ export default function Create() {
 
                         {/* actions */}
                         {/* ====================== */}
-                        <div className="mb-6">
-                            <h1 className="inline text-1xl font-semibold leading-none">Actions</h1>
-                        </div>
                         {/* pos size */}
                         {/* slider */}
                         {/* <div className="mb-6">
@@ -269,13 +262,6 @@ export default function Create() {
                             </li>
                         </ul> */}
 
-                        {/* actions to take */}
-                        {/* select + data feed */}
-                        <div className="mb-6">
-                            <ActionSearch />
-
-                        </div>
-                        <ErrorMessage errors={errors} name="actions" message="This is required" />
 
                         {/* form submit button */}
                         {/* button */}

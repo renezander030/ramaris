@@ -4,7 +4,8 @@ import {
   getSingleBotSchema,
   followBotSchema,
   getSingleBotByNameSchema,
-  listBotSchema
+  listBotSchema,
+  updateStarredBotsSchema
 } from '../../schema/bot.schema'
 import { router, publicProcedure } from '../trpc';
 import * as trpc from '@trpc/server'
@@ -67,15 +68,6 @@ export const botRouter = router({
               }) as Prisma.WalletsOnBotsCreateManyBotInput[]
             }
           },
-          actions: {
-            createMany: {
-              data: input.actions.map((action) => {
-                return {
-                  actionId: action.id
-                }
-              }) as Prisma.ActionsOnBotsCreateManyInput[]
-            }
-          },
           botsFollowing: {
             connect: input.botsFollowing?.map((botFollowing) => {
               return {
@@ -124,14 +116,64 @@ export const botRouter = router({
         })
       }
 
-      console.log(JSON.stringify(input))
-
-      const updateBot = await ctx.prisma.bot.updateMany({
+      // selects only the bot the user is the author for
+      const botIsAuthoredByTheUser = await ctx?.prisma?.bot?.findUnique({
         where: {
-          creator: { email: ctx.session?.user?.email },
+          id: input.id
+        }
+      })
+
+      interface SessionUser extends DefaultSession {
+        id: string,
+        name: string,
+        email: string
+      }
+
+      const sessionUser: SessionUser = ctx?.session?.user as SessionUser
+
+      if(botIsAuthoredByTheUser?.creatorId != sessionUser.id) {
+        new trpc.TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Not authorized'
+        })
+      }
+
+      const updateBot = ctx.prisma.bot.update({
+        where: {
           id: input.id
         },
-        data: input as Prisma.BotUpdateManyMutationInput
+        data: {
+          id: input.id,
+          name: input.name,
+          shareId: input.shareId,
+          state: input.state,
+          wallets: {
+            deleteMany: {
+              botId: input.id,
+            },
+            createMany: {
+              data: input.wallets?.map((wallet) => {
+                return {
+                  walletId: wallet.id
+                }
+              }) as Prisma.WalletsOnBotsCreateManyBotInput[]
+            }
+          },
+          botsFollowing: {
+            set: input.botsFollowing?.map((bot) => {
+              return {
+                id: bot.id
+              }
+            })
+          },
+          weekdays: input.weekdays,
+          hours: input.hours,
+          whitelistTokens: input.whitelistTokens,
+          blacklistTokens: input.blacklistTokens,
+          blacklistProtocols: input.blacklistProtocols,
+          transactionValue: input.transactionValue,
+          gasValue: input.gasValue
+        }
       })
 
       return updateBot
@@ -343,7 +385,8 @@ export const botRouter = router({
             connect: {
               id: input.id
             }
-          }
+          },
+          copyIsEnabled: false
         }
       })
 
@@ -377,6 +420,10 @@ export const botRouter = router({
     .query(async ({ ctx, input }) => {
 
       const user = ctx.session?.user as ramarisUser
+      let userEmail = ctx.session?.user?.email?.toString()
+
+      if(!userEmail) userEmail = ""
+
       const bot = await ctx.prisma.bot.findUnique({
         where: {
           id: input.id
@@ -435,7 +482,17 @@ export const botRouter = router({
               },
             }
           },
-          StarBot: false,
+          StarBot: {
+            where: {
+              user: {
+                email: userEmail
+              }
+            },
+            select: {
+              copyIsEnabled: true,
+              positionSizePercentage: true
+            }
+          },
           wallets: {
             select: {
               walletId: true,
@@ -456,7 +513,7 @@ export const botRouter = router({
       })
 
       let botIsAuthoredByThisUser = false;
-      if (bot?.creator?.email == user.email) botIsAuthoredByThisUser = true;
+      if (bot?.creator?.email == userEmail) botIsAuthoredByThisUser = true;
       return {
         user: user,
         bot: bot,
@@ -524,4 +581,48 @@ export const botRouter = router({
       })
       return bot;
     }),
+    updateStarredBots: publicProcedure
+    .input(updateStarredBotsSchema)
+    .mutation(async ({ ctx, input }) => {
+
+      if (!ctx.session?.user) {
+        new trpc.TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Can not update a bot while logged out',
+        })
+      }
+
+      const user = await ctx.prisma?.user.findUnique({
+        where: {
+          email: ctx.session?.user?.email as unknown as string
+        },
+        select: {
+          id: true
+        }
+      });
+
+      const update = await ctx.prisma.bot.update({
+        where: {
+          id: input.botId
+        },
+        data: {
+          StarBot: {
+            update: {
+              where: {
+                userId_botId: {
+                  userId: user?.id as unknown as string,
+                  botId: input.botId
+                }
+              },
+              data: {
+                copyIsEnabled: input.copyIsEnabled,
+                positionSizePercentage: input.positionSizePercentage
+              }
+            }
+          }
+        }
+      })
+
+      return update
+    })
 });

@@ -14,6 +14,12 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com', // crypto assets logos
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
   reactStrictMode: true,

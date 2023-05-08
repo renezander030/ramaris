@@ -80,7 +80,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: CustomAppPro
 
         {/* Content */}
         <div className="container">
-          <main className="w-full flex flex-row flex-wrap">
+          <main className="w-full flex flex-col flex-nowrap">
 
             {/* top menu */}
             <nav className="flex items-center justify-between flex-wrap bg-teal px-6 py-6">
@@ -95,7 +95,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: CustomAppPro
             </nav>
 
             {/* contents */}
-            <section className="lg:w-3/4 px-6">
+            <section className="lg:w-3/4 px-6 flex-1">
               {Component.auth ? (
                 <Auth>
                   <Component {...pageProps} />

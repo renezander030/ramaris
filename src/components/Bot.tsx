@@ -42,7 +42,7 @@ export default function Bot({ bot, isUserSignedIn }: { bot: listBotSchema, isUse
 
         if (bot?.StarBot && bot?.StarBot?.length >= 1) setFollowState(true)
         setStarBot((follows) => follows = bot?._count?.StarBot)
-    }, [bot?.StarBot?.length, bot?._count?.StarBot])
+    }, [bot?.StarBot, bot?._count?.StarBot])
 
 
     function handleFollow() {

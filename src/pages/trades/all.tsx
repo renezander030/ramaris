@@ -49,7 +49,7 @@ export default function TradesAll() {
       <div className="mt-6 overflow-x-auto relative shadow-md sm:rounded-lg">
         <table className="table-fixed w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <tbody>
-            {positions.data.map((position) => (
+            {positions.data.map((position: any) => (
               <tr key={position.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <td scope="row" className="w-1/4 py-4 lg:px-6 px-2 font-medium whitespace-nowrap">
                   <Link href={`/bots/${position.bot?.id}`}>
