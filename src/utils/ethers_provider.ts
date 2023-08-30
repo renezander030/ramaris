@@ -59,7 +59,7 @@ export const startConnection = async () => {
     clearInterval(pingTimeout)
   })
   
-  const abi_usdt = require('../blockchain/abis/usdt.json')
+  const abi_usdt = await fetch('../blockchain/abis/usdt.json')
   const tokenContract = '0xc2132d05d31c914a87c6611c10748aeb04b58e8f'
   const contract = new Contract(tokenContract, abi_usdt, provider)
   return {

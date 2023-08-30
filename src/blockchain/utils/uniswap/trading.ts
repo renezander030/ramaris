@@ -138,8 +138,6 @@ export async function getOutputQuote(route: Route<Currency, Currency>, provider:
     }
   )
 
-    console.log(`i was here ${calldata}`)
-
   const quoteCallReturnData = await provider.call({
     to: QUOTER_CONTRACT_ADDRESS,
     data: calldata,

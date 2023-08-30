@@ -52,7 +52,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext<{ us
     // get account balance from ethers
     const local_provider = (await provider).provider;
     const local_contract = (await provider).contract;
-    const abi_usdt = require('../blockchain/abis/usdt.json')
+    const abi_usdt = await fetch('../blockchain/abis/usdt.json');
     const tokenContract = '0xc2132d05d31c914a87c6611c10748aeb04b58e8f'
     let balance = 0;
     if ((await local_contract).balanceOf(walletAddress)) balance = (await local_contract).balanceOf(walletAddress)

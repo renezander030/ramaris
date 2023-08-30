@@ -459,13 +459,13 @@ async function main() {
           await prisma.$transaction(async (createPosition) => {
 
             const botsFollowingWalletInThisSwap = await createPosition.bot.findMany({
-              // where: {
-              //   wallets: {
-              //     some: {
-              //       walletId: positionFromSwap.walletId
-              //     }
-              //   }
-              // },
+              where: {
+                wallets: {
+                  some: {
+                    walletId: positionFromSwap.walletId
+                  }
+                }
+              },
               select: {
                 id: true,
                 positionSizePercentage: true,
